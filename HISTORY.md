@@ -1,10 +1,10 @@
 # VERSION HISTORY
 
-### VERSION 1.0.3
+### VERSION 1.0.3 - 2020-03-20
 
-Added support for four (4) password validation methods:
+**Added**
 
-  ContainsNumeralsValidator  
-  ContainsUppercaseValidator  
-  ContainsLowercaseValidator  
-  ContainsSpecialCharactersValidator  
+- ContainsNumeralsValidator
+- ContainsUppercaseValidator
+- ContainsLowercaseValidator
+- ContainsSpecialCharactersValidator

@@ -23,12 +23,22 @@ $ pip install django=2.2
 
 > **_NOTE:_**  See the [django-project](https://docs.djangoproject.com) documentation for information on non-deprecated Django versions.
 
-### Installing
+### Installation
+
+#### Normal installation
 
 Install django-advanced_password_validation via pip:
 
 ```
 $ pip install django-advanced_password_validation
+```
+
+#### Development installation
+
+```
+$ git clone https://github.com/ezrajrice/django-advanced_password_validation.git
+$ cd django-advanced_password_validation
+$ pip install --editable .
 ```
 
 ### Usage
@@ -47,25 +57,25 @@ INSTALLED_APPS = [
 AUTH_PASSWORD_VALIDATORS = [
     ...
     {
-        'NAME': 'django-advanced_password_validation.ContainsNumeralsValidator',
+        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsNumeralsValidator',
         'OPTIONS': {
             'min_numerals': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.ContainsUppercaseValidator',
+        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsUppercaseValidator',
         'OPTIONS': {
             'min_uppercase': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.ContainsLowercaseValidator',
+        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsLowercaseValidator',
         'OPTIONS': {
             'min_lowercase': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.ContainsSpecialCharactersValidator',
+        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsSpecialCharactersValidator',
         'OPTIONS': {
             'min_characters': 1
         }
