@@ -4,7 +4,7 @@
 
 Added support for four (4) password validation methods:
 
-  ContainsNumeralsValidator
-  ContainsUppercaseValidator
-  ContainsLowercaseValidator
-  ContainsSpecialCharactersValidator
+  ContainsNumeralsValidator  
+  ContainsUppercaseValidator  
+  ContainsLowercaseValidator  
+  ContainsSpecialCharactersValidator  
