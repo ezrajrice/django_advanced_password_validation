@@ -4,7 +4,7 @@ Extends Django password validation options to include minimum uppercase, minimum
 
 This package works for both python 3.x and 2.x versions.
 
-> **_NOTE:_** As of January 01, 2020 python 2.x has been deprecated and will not longer receive continued support. See [Python 2.x EOL](https://www.python.org/doc/sunset-python-2/) for more details.
+> **_NOTE:_** As of January 01, 2020 python 2.x has been deprecated and will no longer receive continued support. See [Python 2.x EOL](https://www.python.org/doc/sunset-python-2/) for more details.
 
 ### Prerequisites
 
