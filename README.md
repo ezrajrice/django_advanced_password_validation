@@ -57,9 +57,9 @@ INSTALLED_APPS = [
 AUTH_PASSWORD_VALIDATORS = [
     ...
     {
-        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsNumeralsValidator',
+        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsDigitsValidator',
         'OPTIONS': {
-            'min_numerals': 1
+            'min_digits': 1
         }
     },
     {
@@ -90,7 +90,7 @@ Here is a list of the available options with their default values.
 
 | Validator | Option | Default |
 | --- |:---:| ---:|
-| ContainsNumeralsValidator | min_numerals | 1 |
+| ContainsDigitsValidator | min_digits | 1 |
 | ContainsUppercaseValidator | min_uppercase | 1 |
 | ContainsLowercaseValidator | min_lowercase | 1 |
 | ContainsSpecialCharactersValidator | min_characters | 1 |
@@ -102,3 +102,7 @@ Here is a list of the available options with their default values.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+
+## Acknowledgments
+
+* **Victor Semionov** - *Contributor* - [vsemionov](https://github.com/vsemionov)

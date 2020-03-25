@@ -8,7 +8,7 @@ with open('HISTORY.md', encoding='utf-8') as history_file:
 
 setup_args = dict(
     name='django-advanced_password_validation',
-    version='1.0.3',
+    version='1.0.4',
     description='Extends Django password validation options to include minimum uppercase, lowercase, numerical, and special characters.',
     long_description_content_type="text/markdown",
     long_description=README + '\n\n' + HISTORY,

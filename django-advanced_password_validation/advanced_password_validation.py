@@ -1,27 +1,27 @@
 from django.core.exceptions import ValidationError
-from django.utils.translation import gettext as _, ngettext
+from django.utils.translation import ngettext
 
 
-class ContainsNumeralsValidator:
-    def __init__(self, min_numerals=1):
-        self.min_numerals = min_numerals
+class ContainsDigitsValidator:
+    def __init__(self, min_digits=1):
+        self.min_digits = min_digits
 
     def validate(self, password, user=None):
-        if sum(c.isdigit() for c in password) < self.min_numerals:
+        if sum(c.isdigit() for c in password) < self.min_digits:
             raise ValidationError(
-                ngettext("Password must contain at least %(min_numerals)d number.",
-                         "Password must contain at least %(min_numerals)d numbers.",
-                         self.min_numerals),
+                ngettext("Password must contain at least %(min_digits)d number.",
+                         "Password must contain at least %(min_digits)d numbers.",
+                         self.min_digits),
                 code='password_too_weak',
-                params={'min_numerals': self.min_numerals},
+                params={'min_digits': self.min_digits},
             )
 
     def get_help_text(self):
         return ngettext(
-            "Your password must contain at least %(min_numerals)d number.",
-            "Your password must contain at least %(min_numerals)d numbers.",
-            self.min_numerals
-        ) % {'min_numerals': self.min_numerals}
+            "Your password must contain at least %(min_digits)d number.",
+            "Your password must contain at least %(min_digits)d numbers.",
+            self.min_digits
+        ) % {'min_digits': self.min_digits}
 
 
 class ContainsUppercaseValidator:
@@ -71,11 +71,10 @@ class ContainsLowercaseValidator:
 class ContainsSpecialCharactersValidator:
     def __init__(self, min_characters=1):
         self.min_characters = min_characters
-        self.characters = ['~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
-                            '_', '+', '{', '}', '"', ':', ';', "'", '[', ']']
+        self.characters = set(" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
 
     def validate(self, password, user=None):
-        if not any(c in password for c in self.characters):
+        if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
                 ngettext("Password must contain at least %(min_characters)d special character.",
                          "Password must contain at least %(min_characters)d special characters.",
