@@ -1,5 +1,26 @@
 # VERSION HISTORY
 
+### VERSION 1.1.0 - 2022-05-23
+
+**Added**
+
+- MaximumLengthValidator
+- MaxConsecutiveCharactersValidator
+- ConsecutivelyIncreasingDigitValidator
+- ConsecutivelyDecreasingDigitValidator
+
+**Removed**
+
+- N/A
+
+**Edited**
+
+- Updated the Options list to show inputs and default values for the new methods.
+
+**Bug Fix**
+
+- package has been renamed from "django-advanced_password_validation" to "django_advanced_password_validation" to fix the *django.core.exceptions.improperlyconfigured: the app label 'django-advanced_password_validation' is not a valid python identifier* error
+
 ### VERSION 1.0.4 - 2020-03-25
 
 **Added**

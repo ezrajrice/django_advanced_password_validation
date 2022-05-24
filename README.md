@@ -50,32 +50,32 @@ The four optional validators must be configured in the settings.py file of your 
 ```python
 INSTALLED_APPS = [
     ...
-    'django-advanced_password_validation',
+    'django_advanced_password_validation',
     ...
 ]
 
 AUTH_PASSWORD_VALIDATORS = [
     ...
     {
-        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsDigitsValidator',
+        'NAME': 'django_advanced_password_validation.advanced_password_validation.ContainsDigitsValidator',
         'OPTIONS': {
             'min_digits': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsUppercaseValidator',
+        'NAME': 'django_advanced_password_validation.advanced_password_validation.ContainsUppercaseValidator',
         'OPTIONS': {
             'min_uppercase': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsLowercaseValidator',
+        'NAME': 'django_advanced_password_validation.advanced_password_validation.ContainsLowercaseValidator',
         'OPTIONS': {
             'min_lowercase': 1
         }
     },
     {
-        'NAME': 'django-advanced_password_validation.advanced_password_validation.ContainsSpecialCharactersValidator',
+        'NAME': 'django_advanced_password_validation.advanced_password_validation.ContainsSpecialCharactersValidator',
         'OPTIONS': {
             'min_characters': 1
         }
@@ -94,6 +94,10 @@ Here is a list of the available options with their default values.
 | ContainsUppercaseValidator | min_uppercase | 1 |
 | ContainsLowercaseValidator | min_lowercase | 1 |
 | ContainsSpecialCharactersValidator | min_characters | 1 |
+| MaximumLengthValidator | max_length | 128 |
+| MaxConsecutiveCharactersValidator | max_consecutive | 3 |
+| ConsecutivelyIncreasingDigitValidator | max_consecutive | 3 |
+| ConsecutivelyDecreasingDigitValidator | max_consecutive | 3 |
 
 ## Authors
 
