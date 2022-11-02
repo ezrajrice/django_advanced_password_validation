@@ -19,6 +19,10 @@ from ..advanced_password_validation import (
 
 
 def test_contains_digits_validator():
+    """
+    Test that the ContainsDigitsValidator works as expected and raises a
+    ValidationError when the password does not contain any digits.
+    """
     validator = ContainsDigitsValidator()
     # None means that the password is valid. Otherwise it returns a ValidationError.
     assert validator.validate("1234567890") is None
@@ -29,6 +33,10 @@ def test_contains_digits_validator():
 
 
 def test_contains_uppercase_validator():
+    """
+    Test that the ContainsUppercaseValidator works as expected and raises a
+    ValidationError when the password does not contain any uppercase characters.
+    """
     validator = ContainsUppercaseValidator()
     assert validator.validate("ABCDEFGHIJ") is None
     with pytest.raises(ValidationError) as exc:
@@ -38,6 +46,10 @@ def test_contains_uppercase_validator():
 
 
 def test_contains_lowercase_validator():
+    """
+    Test that the ContainsLowercaseValidator works as expected and raises a
+    ValidationError when the password does not contain any lowercase characters.
+    """
     validator = ContainsLowercaseValidator()
     assert validator.validate("abcdefghij") is None
     with pytest.raises(ValidationError) as exc:
@@ -47,6 +59,10 @@ def test_contains_lowercase_validator():
 
 
 def test_contains_special_characters_validator():
+    """
+    Test that the ContainsSpecialCharactersValidator works as expected and raises a
+    ValidationError when the password does not contain any special characters.
+    """
     validator = ContainsSpecialCharactersValidator()
     assert validator.validate("!@#$%^&*()") is None
     with pytest.raises(ValidationError) as exc:
@@ -56,6 +72,10 @@ def test_contains_special_characters_validator():
 
 
 def test_maximum_length_validator():
+    """
+    Test that the MaximumLengthValidator works as expected and raises a
+    ValidationError when the password is longer than the maximum length.
+    """
     validator = MaximumLengthValidator(max_length=10)
     assert validator.validate("abcdefghij") is None
     with pytest.raises(ValidationError) as exc:
@@ -64,6 +84,11 @@ def test_maximum_length_validator():
 
 
 def test_max_consecutive_characters_validator():
+    """
+    Test that the MaxConsecutiveCharactersValidator works as expected and raises a
+    ValidationError when the password contains more than the maximum number of
+    consecutive characters.
+    """
     validator = MaxConsecutiveCharactersValidator()
     assert validator.validate("abcdefghij") is None
     with pytest.raises(ValidationError) as exc:
@@ -75,6 +100,11 @@ def test_max_consecutive_characters_validator():
 
 
 def test_consecutively_increasing_digit_validator():
+    """
+    Test that the ConsecutivelyIncreasingDigitValidator works as expected and raises a
+    ValidationError when the password contains more than the maximum number of
+    consecutive characters.
+    """
     validator = ConsecutivelyIncreasingDigitValidator()
     assert validator.validate("abcdefghij") is None
     with pytest.raises(ValidationError) as exc:
@@ -86,6 +116,11 @@ def test_consecutively_increasing_digit_validator():
 
 
 def test_consecutively_decreasing_digit_validator():
+    """
+    Test that the ConsecutivelyDecreasingDigitValidator works as expected and raises a
+    ValidationError when the password contains more than the maximum number of
+    consecutive characters.
+    """
     validator = ConsecutivelyDecreasingDigitValidator()
     assert validator.validate("abcdefghij") is None
     with pytest.raises(ValidationError) as exc:
@@ -97,10 +132,18 @@ def test_consecutively_decreasing_digit_validator():
 
 
 def test_valid_password():
+    """
+    Test that the validate_password function works as expected.
+    """
     assert validate_password("Abc$d1234!") is None
 
 
 def test_invalid_password():
+    """
+    Test that the validate_password function works as expected and raises all
+    relevant ValidationErrors when the password is too weak and doesn't conform
+    to the password validation rules.
+    """
     with pytest.raises(ValidationError) as exc:
         validate_password("")
     assert exc.value.messages == [
