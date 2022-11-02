@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.utils.translation import ngettext as _
+from django.utils.translation import gettext
 
 
 class ContainsDigitsValidator:
@@ -9,17 +10,17 @@ class ContainsDigitsValidator:
     def validate(self, password, user=None):
         if sum(c.isdigit() for c in password) < self.min_digits:
             raise ValidationError(
-                _("Password must contain at least %(min_digits)d number.",
-                         "Password must contain at least %(min_digits)d numbers.",
-                         self.min_digits),
+                _(f"Password must contain at least {self.min_digits} number.",
+                  f"Password must contain at least {self.min_digits} numbers.",
+                  self.min_digits),
                 code='password_too_weak',
                 params={'min_digits': self.min_digits},
             )
 
     def get_help_text(self):
         return _(
-            "Your password must contain at least %(min_digits)d number.",
-            "Your password must contain at least %(min_digits)d numbers.",
+            f"Your password must contain at least {self.min_digits} number.",
+            f"Your password must contain at least {self.min_digits} numbers.",
             self.min_digits
         ) % {'min_digits': self.min_digits}
 
@@ -31,17 +32,17 @@ class ContainsUppercaseValidator:
     def validate(self, password, user=None):
         if sum(c.isupper() for c in password) < self.min_uppercase:
             raise ValidationError(
-                _("Password must contain at least %(min_uppercase)d uppercase character.",
-                         "Password must contain at least %(min_uppercase)d uppercase characters.",
-                         self.min_uppercase),
+                _(f"Password must contain at least {self.min_uppercase} uppercase character.",
+                  f"Password must contain at least {self.min_uppercase} uppercase characters.",
+                  self.min_uppercase),
                 code='password_too_weak',
                 params={'min_uppercase': self.min_uppercase},
             )
 
     def get_help_text(self):
         return _(
-            "Your password must contain at least %(min_uppercase)d uppercase character.",
-            "Your password must contain at least %(min_uppercase)d uppercase characters.",
+            f"Your password must contain at least {self.min_uppercase} uppercase character.",
+            f"Your password must contain at least {self.min_uppercase} uppercase characters.",
             self.min_uppercase
         ) % {'min_uppercase': self.min_uppercase}
 
@@ -53,17 +54,17 @@ class ContainsLowercaseValidator:
     def validate(self, password, user=None):
         if sum(c.islower() for c in password) < self.min_lowercase:
             raise ValidationError(
-                _("Password must contain at least %(min_lowercase)d lowercase character.",
-                         "Password must contain at least %(min_lowercase)d lowercase characters.",
-                         self.min_lowercase),
+                _(f"Password must contain at least {self.min_lowercase} lowercase character.",
+                  f"Password must contain at least {self.min_lowercase} lowercase characters.",
+                  self.min_lowercase),
                 code='password_too_weak',
                 params={'min_lowercase': self.min_lowercase},
             )
 
     def get_help_text(self):
         return _(
-            "Your password must contain at least %(min_lowercase)d lowercase character.",
-            "Your password must contain at least %(min_lowercase)d lowercase characters.",
+            f"Your password must contain at least {self.min_lowercase} lowercase character.",
+            f"Your password must contain at least {self.min_lowercase} lowercase characters.",
             self.min_lowercase
         ) % {'min_lowercase': self.min_lowercase}
 
@@ -76,17 +77,17 @@ class ContainsSpecialCharactersValidator:
     def validate(self, password, user=None):
         if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
-                _("Password must contain at least %(min_characters)d special character.",
-                         "Password must contain at least %(min_characters)d special characters.",
-                         self.min_characters),
+                _(f"Password must contain at least {self.min_characters} special character.",
+                  f"Password must contain at least {self.min_characters} special characters.",
+                  self.min_characters),
                 code='password_too_weak',
                 params={'min_characters': self.min_characters},
             )
 
     def get_help_text(self):
         return _(
-            "Your password must contain at least %(min_characters)d special character.",
-            "Your password must contain at least %(min_characters)d special characters.",
+            f"Your password must contain at least {self.min_characters} special character.",
+            f"Your password must contain at least {self.min_characters} special characters.",
             self.min_characters
         ) % {'min_characters': self.min_characters}
 
@@ -96,6 +97,7 @@ class MaximumLengthValidator:
     OWASP recommends setting a maximum password length, typically 128 characters, to prevent
     'long password Denial of Service attacks'.
     """
+
     def __init__(self, max_length=128):
         self.max_length = max_length
 
@@ -103,16 +105,16 @@ class MaximumLengthValidator:
         if len(password) > self.max_length:
             raise ValidationError(
                 _(
-                    "Password must contain at maximum %(max_length)d character.",
-                    "Password must contain at maximum %(max_length)d characters.",
+                    f"Password must contain at maximum {self.max_length} character.",
+                    f"Password must contain at maximum {self.max_length} characters.",
                     self.max_length
                 ) % {'max_length': self.max_length}
             )
 
     def get_help_text(self):
         return _(
-            "Password must contain at maximum %(max_length)d character.",
-            "Password must contain at maximum %(max_length)d characters.",
+            f"Password must contain at maximum {self.max_length} character.",
+            f"Password must contain at maximum {self.max_length} characters.",
             self.max_length
         ) % {'max_length': self.max_length}
 
@@ -127,11 +129,11 @@ class MaxConsecutiveCharactersValidator:
                 check = c * self.max_consecutive
                 if check in password:
                     raise ValidationError(
-                        _("Password contains consecutively repeating characters. e.g 'aaa' or '111'")
+                        gettext("Password contains consecutively repeating characters. e.g 'aaa' or '111'")
                     )
 
     def get_help_text(self):
-        return _("Password cannot contain consecutively repeating characters. e.g 'aaa' or '111'")
+        return gettext("Password cannot contain consecutively repeating characters. e.g 'aaa' or '111'")
 
 
 class ConsecutivelyIncreasingDigitValidator:
@@ -154,13 +156,14 @@ class ConsecutivelyIncreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        _("Password contains consecutively increasing digits. e.g '12345'")
+                                        gettext(
+                                            "Password contains consecutively increasing digits. e.g '12345'")
                                     )
                 except IndexError:
                     pass
 
     def get_help_text(self):
-        return _("Password cannot contain consecutively increasing digits. e.g '12345'")
+        return gettext("Password cannot contain consecutively increasing digits. e.g '12345'")
 
 
 class ConsecutivelyDecreasingDigitValidator:
@@ -183,10 +186,11 @@ class ConsecutivelyDecreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        _("Password contains consecutively decreasing digits. e.g '54321'")
+                                        gettext(
+                                            "Password contains consecutively decreasing digits. e.g '54321'")
                                     )
                 except IndexError:
                     pass
 
     def get_help_text(self):
-        return _("Password cannot contain consecutively decreasing digits. e.g '54321'")
+        return gettext("Password cannot contain consecutively decreasing digits. e.g '54321'")
