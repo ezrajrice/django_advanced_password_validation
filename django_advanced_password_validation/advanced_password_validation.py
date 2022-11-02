@@ -139,7 +139,8 @@ class MaxConsecutiveCharactersValidator:
                 if check in password:
                     raise ValidationError(
                         gettext(
-                            "Password contains consecutively repeating characters. e.g 'aaa' or '111'"
+                            "Password contains consecutively repeating characters. "
+                            "e.g 'aaa' or '111'"
                         )
                     )
 
@@ -170,7 +171,8 @@ class ConsecutivelyIncreasingDigitValidator:
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
                                         gettext(
-                                            "Password contains consecutively increasing digits. e.g '12345'"
+                                            "Password contains consecutively increasing digits. "
+                                            "e.g '12345'"
                                         )
                                     )
                 except IndexError:
@@ -203,7 +205,8 @@ class ConsecutivelyDecreasingDigitValidator:
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
                                         gettext(
-                                            "Password contains consecutively decreasing digits. e.g '54321'"
+                                            "Password contains consecutively decreasing digits. "
+                                            "e.g '54321'"
                                         )
                                     )
                 except IndexError:
