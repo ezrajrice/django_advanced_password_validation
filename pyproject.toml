@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "django_advanced_password_validation"
 description = "Extends Django password validation options in an attempt to keep up with industry standards for strong user passwords."
 readme = "README.md"
-changelog = "HISTORY.md"
 license = {file = "LICENSE.txt"}
 keywords = ["django", "password", "validator"]
 authors = [
