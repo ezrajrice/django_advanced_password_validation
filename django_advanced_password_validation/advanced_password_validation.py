@@ -263,7 +263,7 @@ class MaximumLengthValidator:
 
 class MaxConsecutiveCharactersValidator:
     """
-    Validates whether the password contains max_consecutive consecutive characters.
+    Validates whether the password contains more than max_consecutive consecutive characters.
     """
 
     def __init__(self, max_consecutive=3):
@@ -277,7 +277,7 @@ class MaxConsecutiveCharactersValidator:
 
     def validate(self, password, user=None):
         """
-        Validates whether the password contains max_consecutive consecutive characters.
+        Validates whether the password contains more than max_consecutive consecutive characters.
 
         Args:
             password (str): The password to validate.
@@ -289,7 +289,7 @@ class MaxConsecutiveCharactersValidator:
         """
         for c in password:
             if password.count(c) >= self.max_consecutive:
-                check = c * self.max_consecutive
+                check = c * (self.max_consecutive + 1)
                 if check in password:
                     raise ValidationError(
                         gettext(

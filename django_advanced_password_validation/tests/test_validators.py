@@ -91,8 +91,9 @@ def test_max_consecutive_characters_validator():
     """
     validator = MaxConsecutiveCharactersValidator()
     assert validator.validate("abcdefghij") is None
+    assert validator.validate("aaabbbccc") is None
     with pytest.raises(ValidationError) as exc:
-        validator.validate("aaabbbccc")
+        validator.validate("aaaabbbccc")
     assert (
         exc.value.message
         == "Password contains consecutively repeating characters. e.g 'aaa' or '111'"
