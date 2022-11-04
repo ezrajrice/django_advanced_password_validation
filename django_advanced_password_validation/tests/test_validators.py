@@ -67,7 +67,7 @@ def test_contains_uppercase_get_help_text():
     validator = ContainsUppercaseValidator(min_uppercase=2)
     assert (
         validator.get_help_text()
-        == "Your password must contain at least 2 uppercase character."
+        == "Your password must contain at least 2 uppercase characters."
     )
 
 
@@ -96,7 +96,7 @@ def test_contains_lowercase_get_help_text():
     validator = ContainsLowercaseValidator(min_lowercase=2)
     assert (
         validator.get_help_text()
-        == "Your password must contain at least 2 lowercase character."
+        == "Your password must contain at least 2 lowercase characters."
     )
 
 
@@ -125,7 +125,7 @@ def test_contains_special_characters_get_help_text():
     validator = ContainsSpecialCharactersValidator(min_characters=2)
     assert (
         validator.get_help_text()
-        == "Your password must contain at least 2 special character."
+        == "Your password must contain at least 2 special characters."
     )
 
 
