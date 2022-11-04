@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=65", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django_advanced_password_validation"
+description = "Extends Django password validation options in an attempt to keep up with industry standards for strong user passwords."
+readme = "README.md"
+license = {file = "LICENSE.txt"}
+keywords = ["django", "password", "validator"]
+authors = [
+    {name = "Ezra Rice", email = "ezra.j.rice@gmail.com"},
+]
+classifiers = [
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+dynamic = ["version"]
+
+[project.urls]
+repository = "https://github.com/ezrajrice/django_advanced_password_validation"
