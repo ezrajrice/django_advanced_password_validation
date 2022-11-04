@@ -330,7 +330,7 @@ class ConsecutivelyIncreasingDigitValidator:
                                 count += 1
                                 digit += 1
 
-                                while count >= self.max_consecutive:
+                                while count > self.max_consecutive:
                                     raise ValidationError(
                                         gettext(
                                             "Password contains consecutively increasing digits. "
@@ -387,7 +387,7 @@ class ConsecutivelyDecreasingDigitValidator:
                                 count += 1
                                 digit -= 1
 
-                                while count >= self.max_consecutive:
+                                while count > self.max_consecutive:
                                     raise ValidationError(
                                         gettext(
                                             "Password contains consecutively decreasing digits. "

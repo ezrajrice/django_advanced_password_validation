@@ -1,6 +1,6 @@
 # django_advanced_password_validation
 
-![Tests](https://github.com/ezrajrice/django_advanced_password_validation/actions/workflows/test.yml/badge.svg)
+[![test](https://github.com/ezrajrice/django_advanced_password_validation/actions/workflows/test.yaml/badge.svg?branch=main)](https://github.com/ezrajrice/django_advanced_password_validation/actions/workflows/test.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/ezrajrice/django_advanced_password_validation/badge.svg?branch=main)](https://coveralls.io/github/ezrajrice/django_advanced_password_validation?branch=main)
 
 Extends Django password validation options to include minimum uppercase, minimum lowercase, minimum numerical, and minimum special characters. This was created in an attempt to keep up with industry standards for strong user passwords.

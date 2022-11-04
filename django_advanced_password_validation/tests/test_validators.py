@@ -185,8 +185,9 @@ def test_consecutively_increasing_digit_validator():
     ValidationError when the password contains more than the maximum number of
     consecutive characters.
     """
-    validator = ConsecutivelyIncreasingDigitValidator()
+    validator = ConsecutivelyIncreasingDigitValidator(max_consecutive=3)
     assert validator.validate("abcdefghij") is None
+    assert validator.validate("abcdefg123") is None
     with pytest.raises(ValidationError) as exc:
         validator.validate("1234567890")
     assert (
@@ -212,8 +213,9 @@ def test_consecutively_decreasing_digit_validator():
     ValidationError when the password contains more than the maximum number of
     consecutive characters.
     """
-    validator = ConsecutivelyDecreasingDigitValidator()
+    validator = ConsecutivelyDecreasingDigitValidator(max_consecutive=3)
     assert validator.validate("abcdefghij") is None
+    assert validator.validate("abcdefg321") is None
     with pytest.raises(ValidationError) as exc:
         validator.validate("9876543210")
     assert (
