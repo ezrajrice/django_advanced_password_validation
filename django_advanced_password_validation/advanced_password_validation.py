@@ -47,14 +47,11 @@ class ContainsDigitsValidator:
         """
         Get the help text for the validator.
         """
-        return (
-            _(
-                f"Your password must contain at least {self.min_digits} number.",
-                f"Your password must contain at least {self.min_digits} numbers.",
-                self.min_digits,
-            )
-            % {"min_digits": self.min_digits}
-        )
+        return _(
+            f"Your password must contain at least {self.min_digits} number.",
+            f"Your password must contain at least {self.min_digits} numbers.",
+            self.min_digits,
+        ) % {"min_digits": self.min_digits}
 
 
 class ContainsUppercaseValidator:
@@ -98,14 +95,11 @@ class ContainsUppercaseValidator:
         """
         Get the help text for the validator.
         """
-        return (
-            _(
-                f"Your password must contain at least {self.min_uppercase} uppercase character.",
-                f"Your password must contain at least {self.min_uppercase} uppercase characters.",
-                self.min_uppercase,
-            )
-            % {"min_uppercase": self.min_uppercase}
-        )
+        return _(
+            f"Your password must contain at least {self.min_uppercase} uppercase character.",
+            f"Your password must contain at least {self.min_uppercase} uppercase characters.",
+            self.min_uppercase,
+        ) % {"min_uppercase": self.min_uppercase}
 
 
 class ContainsLowercaseValidator:
@@ -149,14 +143,11 @@ class ContainsLowercaseValidator:
         """
         Get the help text for the validator.
         """
-        return (
-            _(
-                f"Your password must contain at least {self.min_lowercase} lowercase character.",
-                f"Your password must contain at least {self.min_lowercase} lowercase characters.",
-                self.min_lowercase,
-            )
-            % {"min_lowercase": self.min_lowercase}
-        )
+        return _(
+            f"Your password must contain at least {self.min_lowercase} lowercase character.",
+            f"Your password must contain at least {self.min_lowercase} lowercase characters.",
+            self.min_lowercase,
+        ) % {"min_lowercase": self.min_lowercase}
 
 
 class ContainsSpecialCharactersValidator:
@@ -201,14 +192,11 @@ class ContainsSpecialCharactersValidator:
         """
         Get the help text for the validator.
         """
-        return (
-            _(
-                f"Your password must contain at least {self.min_characters} special character.",
-                f"Your password must contain at least {self.min_characters} special characters.",
-                self.min_characters,
-            )
-            % {"min_characters": self.min_characters}
-        )
+        return _(
+            f"Your password must contain at least {self.min_characters} special character.",
+            f"Your password must contain at least {self.min_characters} special characters.",
+            self.min_characters,
+        ) % {"min_characters": self.min_characters}
 
 
 class MaximumLengthValidator:
@@ -251,14 +239,11 @@ class MaximumLengthValidator:
         """
         Get the help text for the validator.
         """
-        return (
-            _(
-                f"Password must contain at maximum {self.max_length} character.",
-                f"Password must contain at maximum {self.max_length} characters.",
-                self.max_length,
-            )
-            % {"max_length": self.max_length}
-        )
+        return _(
+            f"Password must contain at maximum {self.max_length} character.",
+            f"Password must contain at maximum {self.max_length} characters.",
+            self.max_length,
+        ) % {"max_length": self.max_length}
 
 
 class MaxConsecutiveCharactersValidator:
