@@ -111,8 +111,7 @@ def test_contains_special_characters_validator():
         validator.validate("abcdefghij")
     assert exc.value.code == "password_too_weak"
     assert (
-        exc.value.message
-        == "Password must contain at least 1 special character ("
+        exc.value.message == "Password must contain at least 1 special character ("
         " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)."
     )
 
