@@ -180,12 +180,12 @@ class ContainsSpecialCharactersValidator:
         if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
                 ngettext_lazy(
-                    "Password must contain at least %(min_characters)s special character.",
-                    "Password must contain at least %(min_characters)s special characters.",
+                    "Password must contain at least %(min_characters)s special character (%(special_characters)s).",
+                    "Password must contain at least %(min_characters)s special characters (%(special_characters)s).",
                     self.min_characters,
                 ),
                 code="password_too_weak",
-                params={"min_characters": self.min_characters},
+                params={"min_characters": self.min_characters, "special_characters": "".join(self.characters)},
             )
 
     def get_help_text(self):
@@ -193,10 +193,10 @@ class ContainsSpecialCharactersValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            "Your password must contain at least %(min_characters)s special character.",
-            "Your password must contain at least %(min_characters)s special characters.",
+            "Your password must contain at least %(min_characters)s special character (%(special_characters)s)..",
+            "Your password must contain at least %(min_characters)s special characters (%(special_characters)s)..",
             self.min_characters,
-        ) % {"min_characters": self.min_characters}
+        ) % {"min_characters": self.min_characters, "special_characters": "".join(self.characters)}
 
 
 class MaximumLengthValidator:
