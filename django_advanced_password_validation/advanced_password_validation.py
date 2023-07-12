@@ -144,8 +144,8 @@ class ContainsLowercaseValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            "Your password must contain at least %(self.min_lowercase)s lowercase character.",
-            "Your password must contain at least %(self.min_lowercase)s lowercase characters.",
+            "Your password must contain at least %(min_lowercase)s lowercase character.",
+            "Your password must contain at least %(min_lowercase)s lowercase characters.",
             self.min_lowercase,
         ) % {"min_lowercase": self.min_lowercase}
 
@@ -180,8 +180,8 @@ class ContainsSpecialCharactersValidator:
         if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
                 ngettext_lazy(
-                    "Password must contain at least %(self.min_characters)s special character.",
-                    "Password must contain at least %(self.min_characters)s special characters.",
+                    "Password must contain at least %(min_characters)s special character.",
+                    "Password must contain at least %(min_characters)s special characters.",
                     self.min_characters,
                 ),
                 code="password_too_weak",
@@ -193,8 +193,8 @@ class ContainsSpecialCharactersValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            "Your password must contain at least %(self.min_characters)s special character.",
-            "Your password must contain at least %(self.min_characters)s special characters.",
+            "Your password must contain at least %(min_characters)s special character.",
+            "Your password must contain at least %(min_characters)s special characters.",
             self.min_characters,
         ) % {"min_characters": self.min_characters}
 
@@ -228,8 +228,8 @@ class MaximumLengthValidator:
         if len(password) > self.max_length:
             raise ValidationError(
                 ngettext_lazy(
-                    "Password must contain at maximum %(self.max_length)s character.",
-                    "Password must contain at maximum %(self.max_length)s characters.",
+                    "Password must contain at maximum %(max_length)s character.",
+                    "Password must contain at maximum %(max_length)s characters.",
                     self.max_length,
                 )
                 % {"max_length": self.max_length}
@@ -240,8 +240,8 @@ class MaximumLengthValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            "Password must contain at maximum %(self.max_length)s character.",
-            "Password must contain at maximum %(self.max_length)s characters.",
+            "Password must contain at maximum %(max_length)s character.",
+            "Password must contain at maximum %(max_length)s characters.",
             self.max_length,
         ) % {"max_length": self.max_length}
 
