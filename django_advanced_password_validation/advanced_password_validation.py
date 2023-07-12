@@ -35,8 +35,8 @@ class ContainsDigitsValidator:
         if sum(c.isdigit() for c in password) < self.min_digits:
             raise ValidationError(
                 ngettext_lazy(
-                    f"Password must contain at least {self.min_digits} number.",
-                    f"Password must contain at least {self.min_digits} numbers.",
+                    "Password must contain at least %(min_digits)s number.",
+                    "Password must contain at least %(min_digits)s numbers.",
                     self.min_digits,
                 ),
                 code="password_too_weak",
@@ -48,8 +48,8 @@ class ContainsDigitsValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            f"Your password must contain at least {self.min_digits} number.",
-            f"Your password must contain at least {self.min_digits} numbers.",
+            "Your password must contain at least %(min_digits)s number.",
+            "Your password must contain at least %(min_digits)s numbers.",
             self.min_digits,
         ) % {"min_digits": self.min_digits}
 
@@ -83,8 +83,8 @@ class ContainsUppercaseValidator:
         if sum(c.isupper() for c in password) < self.min_uppercase:
             raise ValidationError(
                 ngettext_lazy(
-                    f"Password must contain at least {self.min_uppercase} uppercase character.",
-                    f"Password must contain at least {self.min_uppercase} uppercase characters.",
+                    "Password must contain at least %(min_uppercase)s uppercase character.",
+                    "Password must contain at least %(min_uppercase)s uppercase characters.",
                     self.min_uppercase,
                 ),
                 code="password_too_weak",
@@ -96,8 +96,8 @@ class ContainsUppercaseValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            f"Your password must contain at least {self.min_uppercase} uppercase character.",
-            f"Your password must contain at least {self.min_uppercase} uppercase characters.",
+            "Your password must contain at least %(min_uppercase)s uppercase character.",
+            "Your password must contain at least %(min_uppercase)s uppercase characters.",
             self.min_uppercase,
         ) % {"min_uppercase": self.min_uppercase}
 
@@ -131,8 +131,8 @@ class ContainsLowercaseValidator:
         if sum(c.islower() for c in password) < self.min_lowercase:
             raise ValidationError(
                 ngettext_lazy(
-                    f"Password must contain at least {self.min_lowercase} lowercase character.",
-                    f"Password must contain at least {self.min_lowercase} lowercase characters.",
+                    "Password must contain at least %(min_lowercase)s lowercase character.",
+                    "Password must contain at least %(min_lowercase)s lowercase characters.",
                     self.min_lowercase,
                 ),
                 code="password_too_weak",
@@ -144,8 +144,8 @@ class ContainsLowercaseValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            f"Your password must contain at least {self.min_lowercase} lowercase character.",
-            f"Your password must contain at least {self.min_lowercase} lowercase characters.",
+            "Your password must contain at least %(self.min_lowercase)s lowercase character.",
+            "Your password must contain at least %(self.min_lowercase)s lowercase characters.",
             self.min_lowercase,
         ) % {"min_lowercase": self.min_lowercase}
 
@@ -180,8 +180,8 @@ class ContainsSpecialCharactersValidator:
         if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
                 ngettext_lazy(
-                    f"Password must contain at least {self.min_characters} special character.",
-                    f"Password must contain at least {self.min_characters} special characters.",
+                    "Password must contain at least %(self.min_characters)s special character.",
+                    "Password must contain at least %(self.min_characters)s special characters.",
                     self.min_characters,
                 ),
                 code="password_too_weak",
@@ -193,8 +193,8 @@ class ContainsSpecialCharactersValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            f"Your password must contain at least {self.min_characters} special character.",
-            f"Your password must contain at least {self.min_characters} special characters.",
+            "Your password must contain at least %(self.min_characters)s special character.",
+            "Your password must contain at least %(self.min_characters)s special characters.",
             self.min_characters,
         ) % {"min_characters": self.min_characters}
 
@@ -228,8 +228,8 @@ class MaximumLengthValidator:
         if len(password) > self.max_length:
             raise ValidationError(
                 ngettext_lazy(
-                    f"Password must contain at maximum {self.max_length} character.",
-                    f"Password must contain at maximum {self.max_length} characters.",
+                    "Password must contain at maximum %(self.max_length)s character.",
+                    "Password must contain at maximum %(self.max_length)s characters.",
                     self.max_length,
                 )
                 % {"max_length": self.max_length}
@@ -240,8 +240,8 @@ class MaximumLengthValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            f"Password must contain at maximum {self.max_length} character.",
-            f"Password must contain at maximum {self.max_length} characters.",
+            "Password must contain at maximum %(self.max_length)s character.",
+            "Password must contain at maximum %(self.max_length)s characters.",
             self.max_length,
         ) % {"max_length": self.max_length}
 
