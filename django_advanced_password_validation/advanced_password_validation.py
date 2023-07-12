@@ -38,9 +38,8 @@ class ContainsDigitsValidator:
                     "Password must contain at least %(min_digits)s number.",
                     "Password must contain at least %(min_digits)s numbers.",
                     self.min_digits,
-                ),
+                ) % {"min_digits": self.min_digits},
                 code="password_too_weak",
-                params={"min_digits": self.min_digits},
             )
 
     def get_help_text(self):
@@ -86,9 +85,8 @@ class ContainsUppercaseValidator:
                     "Password must contain at least %(min_uppercase)s uppercase character.",
                     "Password must contain at least %(min_uppercase)s uppercase characters.",
                     self.min_uppercase,
-                ),
+                ) % {"min_uppercase": self.min_uppercase},
                 code="password_too_weak",
-                params={"min_uppercase": self.min_uppercase},
             )
 
     def get_help_text(self):
@@ -134,9 +132,8 @@ class ContainsLowercaseValidator:
                     "Password must contain at least %(min_lowercase)s lowercase character.",
                     "Password must contain at least %(min_lowercase)s lowercase characters.",
                     self.min_lowercase,
-                ),
+                ) % {"min_lowercase": self.min_lowercase},
                 code="password_too_weak",
-                params={"min_lowercase": self.min_lowercase},
             )
 
     def get_help_text(self):
@@ -163,7 +160,7 @@ class ContainsSpecialCharactersValidator:
                 validate password against. Defaults to 1.
         """
         self.min_characters = min_characters
-        self.characters = set(" !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~")
+        self.characters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
 
     def validate(self, password, user=None):
         """
@@ -177,15 +174,14 @@ class ContainsSpecialCharactersValidator:
             ValidationError: Password must contain at least {self.min_characters} special
                 character(s).
         """
-        if sum(c in self.characters for c in password) < self.min_characters:
+        if sum(c in set(self.characters) for c in password) < self.min_characters:
             raise ValidationError(
                 ngettext_lazy(
                     "Password must contain at least %(min_characters)s special character (%(special_characters)s).",
                     "Password must contain at least %(min_characters)s special characters (%(special_characters)s).",
                     self.min_characters,
-                ),
+                ) % {"min_characters": self.min_characters, "special_characters": "".join(self.characters)},
                 code="password_too_weak",
-                params={"min_characters": self.min_characters, "special_characters": "".join(self.characters)},
             )
 
     def get_help_text(self):
@@ -193,8 +189,8 @@ class ContainsSpecialCharactersValidator:
         Get the help text for the validator.
         """
         return ngettext_lazy(
-            "Your password must contain at least %(min_characters)s special character (%(special_characters)s)..",
-            "Your password must contain at least %(min_characters)s special characters (%(special_characters)s)..",
+            "Your password must contain at least %(min_characters)s special character (%(special_characters)s).",
+            "Your password must contain at least %(min_characters)s special characters (%(special_characters)s).",
             self.min_characters,
         ) % {"min_characters": self.min_characters, "special_characters": "".join(self.characters)}
 

@@ -110,7 +110,7 @@ def test_contains_special_characters_validator():
     with pytest.raises(ValidationError) as exc:
         validator.validate("abcdefghij")
     assert exc.value.code == "password_too_weak"
-    assert exc.value.message == "Password must contain at least 1 special character."
+    assert exc.value.message == "Password must contain at least 1 special character ( !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)."
 
 
 def test_contains_special_characters_get_help_text():
@@ -120,12 +120,12 @@ def test_contains_special_characters_get_help_text():
     validator = ContainsSpecialCharactersValidator(min_characters=1)
     assert (
         validator.get_help_text()
-        == "Your password must contain at least 1 special character."
+        == "Your password must contain at least 1 special character ( !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)."
     )
     validator = ContainsSpecialCharactersValidator(min_characters=2)
     assert (
         validator.get_help_text()
-        == "Your password must contain at least 2 special characters."
+        == "Your password must contain at least 2 special characters ( !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~)."
     )
 
 
@@ -255,5 +255,5 @@ def test_invalid_password():
         "Password must contain at least 1 number.",
         "Password must contain at least 1 uppercase character.",
         "Password must contain at least 1 lowercase character.",
-        "Password must contain at least 1 special character.",
+        "Password must contain at least 1 special character ( !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~).",
     ]
