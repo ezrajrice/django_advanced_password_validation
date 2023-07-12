@@ -3,8 +3,8 @@ Advanced password validation
 """
 
 from django.core.exceptions import ValidationError
-from django.utils.translation import ngettext as _
-from django.utils.translation import gettext
+from django.utils.translation import ngettext_lazy
+from django.utils.translation import gettext_lazy as _
 
 
 class ContainsDigitsValidator:
@@ -34,7 +34,7 @@ class ContainsDigitsValidator:
         """
         if sum(c.isdigit() for c in password) < self.min_digits:
             raise ValidationError(
-                _(
+                ngettext_lazy(
                     f"Password must contain at least {self.min_digits} number.",
                     f"Password must contain at least {self.min_digits} numbers.",
                     self.min_digits,
@@ -47,7 +47,7 @@ class ContainsDigitsValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return ngettext_lazy(
             f"Your password must contain at least {self.min_digits} number.",
             f"Your password must contain at least {self.min_digits} numbers.",
             self.min_digits,
@@ -82,7 +82,7 @@ class ContainsUppercaseValidator:
         """
         if sum(c.isupper() for c in password) < self.min_uppercase:
             raise ValidationError(
-                _(
+                ngettext_lazy(
                     f"Password must contain at least {self.min_uppercase} uppercase character.",
                     f"Password must contain at least {self.min_uppercase} uppercase characters.",
                     self.min_uppercase,
@@ -95,7 +95,7 @@ class ContainsUppercaseValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return ngettext_lazy(
             f"Your password must contain at least {self.min_uppercase} uppercase character.",
             f"Your password must contain at least {self.min_uppercase} uppercase characters.",
             self.min_uppercase,
@@ -130,7 +130,7 @@ class ContainsLowercaseValidator:
         """
         if sum(c.islower() for c in password) < self.min_lowercase:
             raise ValidationError(
-                _(
+                ngettext_lazy(
                     f"Password must contain at least {self.min_lowercase} lowercase character.",
                     f"Password must contain at least {self.min_lowercase} lowercase characters.",
                     self.min_lowercase,
@@ -143,7 +143,7 @@ class ContainsLowercaseValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return ngettext_lazy(
             f"Your password must contain at least {self.min_lowercase} lowercase character.",
             f"Your password must contain at least {self.min_lowercase} lowercase characters.",
             self.min_lowercase,
@@ -179,7 +179,7 @@ class ContainsSpecialCharactersValidator:
         """
         if sum(c in self.characters for c in password) < self.min_characters:
             raise ValidationError(
-                _(
+                ngettext_lazy(
                     f"Password must contain at least {self.min_characters} special character.",
                     f"Password must contain at least {self.min_characters} special characters.",
                     self.min_characters,
@@ -192,7 +192,7 @@ class ContainsSpecialCharactersValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return ngettext_lazy(
             f"Your password must contain at least {self.min_characters} special character.",
             f"Your password must contain at least {self.min_characters} special characters.",
             self.min_characters,
@@ -227,7 +227,7 @@ class MaximumLengthValidator:
         """
         if len(password) > self.max_length:
             raise ValidationError(
-                _(
+                ngettext_lazy(
                     f"Password must contain at maximum {self.max_length} character.",
                     f"Password must contain at maximum {self.max_length} characters.",
                     self.max_length,
@@ -239,7 +239,7 @@ class MaximumLengthValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return ngettext_lazy(
             f"Password must contain at maximum {self.max_length} character.",
             f"Password must contain at maximum {self.max_length} characters.",
             self.max_length,
@@ -277,7 +277,7 @@ class MaxConsecutiveCharactersValidator:
                 check = c * (self.max_consecutive + 1)
                 if check in password:
                     raise ValidationError(
-                        gettext(
+                        _(
                             "Password contains consecutively repeating characters. "
                             "e.g 'aaa' or '111'"
                         )
@@ -287,7 +287,7 @@ class MaxConsecutiveCharactersValidator:
         """
         Get the help text for the validator.
         """
-        return gettext(
+        return _(
             "Password cannot contain consecutively repeating characters. e.g 'aaa' or '111'"
         )
 
@@ -332,7 +332,7 @@ class ConsecutivelyIncreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        gettext(
+                                        _(
                                             "Password contains consecutively increasing digits. "
                                             "e.g '12345'"
                                         )
@@ -344,7 +344,7 @@ class ConsecutivelyIncreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return gettext(
+        return _(
             "Password cannot contain consecutively increasing digits. e.g '12345'"
         )
 
@@ -389,7 +389,7 @@ class ConsecutivelyDecreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        gettext(
+                                        _(
                                             "Password contains consecutively decreasing digits. "
                                             "e.g '54321'"
                                         )
@@ -401,6 +401,6 @@ class ConsecutivelyDecreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return gettext(
+        return _(
             "Password cannot contain consecutively decreasing digits. e.g '54321'"
         )
