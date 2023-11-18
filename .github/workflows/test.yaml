@@ -17,8 +17,10 @@ jobs:
     name: Lint with Black
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: psf/black@fcf97961061982656a1384ecc1628e217a52a88c
+      - uses: actions/checkout@v3
+      - uses: psf/black@stable
+        with:
+          version: "~=23.0"
 
   test:
     name: Test django-advanced-password-validation
@@ -54,6 +56,9 @@ jobs:
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.10" }
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.11" }
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.12" }
+          - { "djangoVersion": "4.2.3", "pythonVersion": "3.8" }
+          - { "djangoVersion": "4.2.3", "pythonVersion": "3.9" }
+          - { "djangoVersion": "4.2.3", "pythonVersion": "3.10" }
     steps:
       # Checkout the source
       - name: Checkout

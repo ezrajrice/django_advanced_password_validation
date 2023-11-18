@@ -28,17 +28,17 @@ pip install django=3.2
 
 ### Normal installation
 
-Install django-advanced_password_validation via pip:
+Install django_advanced_password_validation via pip:
 
 ```bash
-pip install django-advanced_password_validation
+pip install django_advanced_password_validation
 ```
 
 ### Development installation
 
 ```bash
-git clone https://github.com/ezrajrice/django-advanced_password_validation.git
-cd django-advanced_password_validation
+git clone https://github.com/ezrajrice/django_advanced_password_validation.git
+cd django_advanced_password_validation
 pip install --editable .
 ```
 
