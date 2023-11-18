@@ -4,7 +4,7 @@ Advanced password validation
 
 from django.core.exceptions import ValidationError
 from django.utils.translation import ngettext_lazy
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy
 
 
 class ContainsDigitsValidator:
@@ -295,7 +295,7 @@ class MaxConsecutiveCharactersValidator:
                 check = c * (self.max_consecutive + 1)
                 if check in password:
                     raise ValidationError(
-                        _(
+                        gettext_lazy(
                             "Password contains consecutively repeating characters. "
                             "e.g 'aaa' or '111'"
                         )
@@ -305,7 +305,7 @@ class MaxConsecutiveCharactersValidator:
         """
         Get the help text for the validator.
         """
-        return _(
+        return gettext_lazy(
             "Password cannot contain consecutively repeating characters. e.g 'aaa' or"
             " '111'"
         )
@@ -351,7 +351,7 @@ class ConsecutivelyIncreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        _(
+                                        gettext_lazy(
                                             "Password contains consecutively increasing"
                                             " digits. e.g '12345'"
                                         )
@@ -363,7 +363,7 @@ class ConsecutivelyIncreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return _("Password cannot contain consecutively increasing digits. e.g '12345'")
+        return gettext_lazy("Password cannot contain consecutively increasing digits. e.g '12345'")
 
 
 class ConsecutivelyDecreasingDigitValidator:
@@ -406,7 +406,7 @@ class ConsecutivelyDecreasingDigitValidator:
 
                                 while count >= self.max_consecutive:
                                     raise ValidationError(
-                                        _(
+                                        gettext_lazy(
                                             "Password contains consecutively decreasing"
                                             " digits. e.g '54321'"
                                         )
@@ -418,4 +418,4 @@ class ConsecutivelyDecreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return _("Password cannot contain consecutively decreasing digits. e.g '54321'")
+        return gettext_lazy("Password cannot contain consecutively decreasing digits. e.g '54321'")

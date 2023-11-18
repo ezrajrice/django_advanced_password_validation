@@ -5,11 +5,11 @@
 
 Extends Django password validation options to include minimum uppercase, minimum lowercase, minimum numerical, and minimum special characters. This was created in an attempt to keep up with industry standards for strong user passwords.
 
-This package works for python 3.6+.
+This package has been tested with python 3.7+.
 
 ## Prerequisites
 
-Requires Django 2.2 or later.
+Requires Django 3.2 or later.
 You can install the latest version of Django via pip:
 
 ```bash

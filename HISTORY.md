@@ -1,5 +1,24 @@
 # VERSION HISTORY
 
+### VERSION 1.2.0 - 2023-11-17
+
+**Added**
+
+- N/A
+
+**Removed**
+
+- Django 2.2 no longer supported as it has been deprecated by the Django Project
+
+**Edited**
+
+- N/A
+
+**Bug Fix**
+
+- Fixed improper use of alias "_" for plural messages with ngettext
+- Changed gettext usage to lazy translations
+
 ### VERSION 1.1.0 - 2022-05-23
 
 **Added**
