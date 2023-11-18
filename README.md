@@ -5,7 +5,7 @@
 
 Extends Django password validation options to include minimum uppercase, minimum lowercase, minimum numerical, and minimum special characters. This was created in an attempt to keep up with industry standards for strong user passwords.
 
-This package has been tested with python 3.7+.
+This package has been tested with python 3.9+.
 
 ## Prerequisites
 

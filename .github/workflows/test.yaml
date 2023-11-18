@@ -28,24 +28,18 @@ jobs:
     strategy:
       matrix:
         versions:
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.7" }
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.8" }
           - { "djangoVersion": "3.2.16", "pythonVersion": "3.9" }
           - { "djangoVersion": "3.2.16", "pythonVersion": "3.10" }
           - { "djangoVersion": "3.2.16", "pythonVersion": "3.11" }
           - { "djangoVersion": "3.2.16", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.0.8", "pythonVersion": "3.8" }
           - { "djangoVersion": "4.0.8", "pythonVersion": "3.9" }
           - { "djangoVersion": "4.0.8", "pythonVersion": "3.10" }
           - { "djangoVersion": "4.0.8", "pythonVersion": "3.11" }
           - { "djangoVersion": "4.0.8", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.1.2", "pythonVersion": "3.8" }
           - { "djangoVersion": "4.1.2", "pythonVersion": "3.9" }
           - { "djangoVersion": "4.1.2", "pythonVersion": "3.10" }
           - { "djangoVersion": "4.1.2", "pythonVersion": "3.11" }
           - { "djangoVersion": "4.1.2", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.7" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.8" }
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.9" }
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.10" }
           - { "djangoVersion": "4.2.7", "pythonVersion": "3.11" }
@@ -61,7 +55,7 @@ jobs:
           python-version: ${{ matrix.versions.pythonVersion }}
       # Install Dependencies
       - name: Install dependencies
-        run: python -m pip install -r requirements_test.txt && python -m pip install -e .
+        run: python -m pip install --upgrade pip && python -m pip install -r requirements_test.txt && python -m pip install -e .
       # Install Django
       - name: Install Django ${{ matrix.versions.djangoVersion }}
         run: python -m pip install Django==${{ matrix.versions.djangoVersion }}
