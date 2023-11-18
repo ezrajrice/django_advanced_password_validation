@@ -23,7 +23,7 @@ classifiers = [
     "Topic :: Internet :: WWW/HTTP",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
 ]
-dynamic = ["version"]
+version = "1.2.0"
 
 [project.urls]
 repository = "https://github.com/ezrajrice/django_advanced_password_validation"
