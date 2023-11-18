@@ -363,7 +363,9 @@ class ConsecutivelyIncreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return gettext_lazy("Password cannot contain consecutively increasing digits. e.g '12345'")
+        return gettext_lazy(
+            "Password cannot contain consecutively increasing digits. e.g '12345'"
+        )
 
 
 class ConsecutivelyDecreasingDigitValidator:
@@ -418,4 +420,6 @@ class ConsecutivelyDecreasingDigitValidator:
         """
         Get the help text for the validator.
         """
-        return gettext_lazy("Password cannot contain consecutively decreasing digits. e.g '54321'")
+        return gettext_lazy(
+            "Password cannot contain consecutively decreasing digits. e.g '54321'"
+        )
