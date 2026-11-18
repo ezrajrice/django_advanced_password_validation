@@ -290,16 +290,23 @@ class MaxConsecutiveCharactersValidator:
             ValidationError: Password cannot contain consecutively repeating
                 characters. e.g 'aaa' or '111'
         """
+        current_char = None
+        current_run = 0
+        
         for c in password:
-            if password.count(c) >= self.max_consecutive:
-                check = c * (self.max_consecutive + 1)
-                if check in password:
-                    raise ValidationError(
-                        gettext_lazy(
-                            "Password contains consecutively repeating characters. "
-                            "e.g 'aaa' or '111'"
-                        )
+            if c == current_char:
+                current_run += 1
+            else:
+                current_char = c
+                current_run = 1
+                
+            if current_run > self.max_consecutive:
+                raise ValidationError(
+                    gettext_lazy(
+                        "Password contains consecutively repeating characters. "
+                        "e.g 'aaa' or '111'"
                     )
+                )
 
     def get_help_text(self):
         """

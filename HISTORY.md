@@ -1,5 +1,29 @@
 # VERSION HISTORY
 
+### VERSION 1.3.0 - 2026-11-17
+
+**Added**
+
+- Support/Testing for Django 5.2
+- Support/Testing for Django 6.0
+- Support/Testing for Django 6.1
+- Support/Testing for Python 3.11-3.15 in accordance with each Django version's supported Python distribution
+
+**Removed**
+
+- Django 3 no longer supported as it has been deprecated by the Django Project
+- Django 4 no longer supported as it has been deprecated by the Django Project
+- Support/Testing for Python versions older than 3.11
+  - Older versions of Python should still work, but are considered deprecated to be consistent with supported Python version of current Django versions
+
+**Edited**
+
+- Improved MaxConsecutiveCharactersValidator efficiency
+
+**Bug Fix**
+
+- N/A
+
 ### VERSION 1.2.0 - 2023-11-17
 
 **Added**

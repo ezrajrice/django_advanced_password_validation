@@ -28,22 +28,17 @@ jobs:
     strategy:
       matrix:
         versions:
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.9" }
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.10" }
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.11" }
-          - { "djangoVersion": "3.2.16", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.0.8", "pythonVersion": "3.9" }
-          - { "djangoVersion": "4.0.8", "pythonVersion": "3.10" }
-          - { "djangoVersion": "4.0.8", "pythonVersion": "3.11" }
-          - { "djangoVersion": "4.0.8", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.1.2", "pythonVersion": "3.9" }
-          - { "djangoVersion": "4.1.2", "pythonVersion": "3.10" }
-          - { "djangoVersion": "4.1.2", "pythonVersion": "3.11" }
-          - { "djangoVersion": "4.1.2", "pythonVersion": "3.12" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.9" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.10" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.11" }
-          - { "djangoVersion": "4.2.7", "pythonVersion": "3.12" }
+          - { "djangoVersion": "5.2", "pythonVersion": "3.11" }
+          - { "djangoVersion": "5.2", "pythonVersion": "3.12" }
+          - { "djangoVersion": "5.2", "pythonVersion": "3.13" }
+          - { "djangoVersion": "5.2", "pythonVersion": "3.14" }
+          - { "djangoVersion": "6.0", "pythonVersion": "3.12" }
+          - { "djangoVersion": "6.0", "pythonVersion": "3.13" }
+          - { "djangoVersion": "6.0", "pythonVersion": "3.14" }
+          - { "djangoVersion": "6.1", "pythonVersion": "3.12" }
+          - { "djangoVersion": "6.1", "pythonVersion": "3.13" }
+          - { "djangoVersion": "6.1", "pythonVersion": "3.14" }
+          - { "djangoVersion": "6.1", "pythonVersion": "3.15" }
     steps:
       # Checkout the source
       - name: Checkout
