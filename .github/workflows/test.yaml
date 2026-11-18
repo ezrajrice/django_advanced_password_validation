@@ -17,10 +17,10 @@ jobs:
     name: Lint with Black
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - uses: psf/black@stable
         with:
-          version: "~=23.0"
+          version: "~=26.0"
 
   test:
     name: Test django-advanced-password-validation
@@ -42,10 +42,10 @@ jobs:
     steps:
       # Checkout the source
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       # Setup Python
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ matrix.versions.pythonVersion }}
       # Install Dependencies

@@ -292,14 +292,14 @@ class MaxConsecutiveCharactersValidator:
         """
         current_char = None
         current_run = 0
-        
+
         for c in password:
             if c == current_char:
                 current_run += 1
             else:
                 current_char = c
                 current_run = 1
-                
+
             if current_run > self.max_consecutive:
                 raise ValidationError(
                     gettext_lazy(
